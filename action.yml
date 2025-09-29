@@ -55,8 +55,8 @@ runs:
         scp -o StrictHostKeyChecking=no -i private_key ${{ inputs.application-file }} actions@${{ inputs.server-host }}:work/${{ inputs.application-name }}.zip || exit 1
         DEPLOY_ARGS="-n ${{ inputs.application-name }} -a work/${{ inputs.application-name }}.zip"
         if [ -n "${{ inputs.application-env }}" ]; then
-          scp -o StrictHostKeyChecking=no -i private_key ${{ inputs.application-env }} actions@${{ inputs.server-host }}:work/${{ inputs.application-name }}.yml || exit 1
-          DEPLOY_ARGS="$DEPLOY_ARGS -e work/${{ inputs.application-name }}.yml"
+          scp -o StrictHostKeyChecking=no -i private_key ${{ inputs.application-env }} actions@${{ inputs.server-host }}:work/${{ inputs.application-name }}.env || exit 1
+          DEPLOY_ARGS="$DEPLOY_ARGS -e work/${{ inputs.application-name }}.env"
         fi
         if [ -n "${{ inputs.application-vhost }}" ]; then
           scp -o StrictHostKeyChecking=no -i private_key ${{ inputs.application-vhost }} actions@${{ inputs.server-host }}:work/${{ inputs.application-name }}.conf || exit 1
