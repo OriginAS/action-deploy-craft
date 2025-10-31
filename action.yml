@@ -15,7 +15,7 @@ inputs:
     description: 'The name that the application should be install as on the server'
     required: true
   application-file:
-    description: 'The .jar or .war file that is the packaged version of the project'
+    description: 'The .zip or .tar.gz file that is the packaged version of the project'
     required: true
   application-env:
     description: 'The .env file containing necessary environmental variables'
